@@ -13,10 +13,10 @@
 }
 
 body{
-    background:#03070c;
-    color:#fff;
-    font-family:Arial,sans-serif;
     min-height:100vh;
+    background:#03070c;
+    color:white;
+    font-family:Arial,Helvetica,sans-serif;
     overflow-x:hidden;
 }
 
@@ -25,178 +25,134 @@ body::before{
     position:fixed;
     inset:0;
     pointer-events:none;
-    background:
-        radial-gradient(circle at 50% 0%,rgba(0,110,255,.13),transparent 40%);
+    background:radial-gradient(
+        circle at 50% 0%,
+        rgba(0,120,255,.16),
+        transparent 42%
+    );
 }
 
 #espera{
     min-height:100vh;
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
     padding:20px;
-    position:relative;
 }
 
-.espera-box{
-    width:100%;
-    max-width:600px;
-    text-align:center;
-    padding:35px 22px;
-    background:#07101a;
-    border:1px solid #10304b;
-    border-radius:22px;
-    box-shadow:0 0 35px rgba(0,100,255,.10);
-}
-
-.mini{
-    color:#198cff;
-    font-size:11px;
-    letter-spacing:3px;
-    margin-bottom:18px;
-}
-
-.espera-box h1{
-    font-size:clamp(30px,7vw,48px);
-    margin-bottom:12px;
-}
-
-.espera-box p{
-    color:#8da0b2;
-    font-size:14px;
-    line-height:1.6;
-}
-
-.contador{
+.contador-area{
     display:flex;
     justify-content:center;
-    gap:9px;
-    margin:32px 0 20px;
+    align-items:center;
+    gap:8px;
 }
 
 .numero{
-    background:#0a1723;
-    border:1px solid #123b5d;
-    border-radius:14px;
-    width:78px;
-    padding:15px 5px;
+    text-align:center;
 }
 
-.numero b{
+.numero strong{
     display:block;
+    font-size:clamp(42px,12vw,75px);
+    font-weight:400;
+    color:#fff;
+    text-shadow:0 0 20px rgba(0,140,255,.45);
+    transition:.2s;
+}
+
+.separador{
+    font-size:clamp(35px,9vw,65px);
+    color:#fff;
+}
+
+.contagem-final .numero strong{
     color:#168cff;
-    font-size:29px;
+    text-shadow:
+        0 0 10px #168cff,
+        0 0 30px #168cff,
+        0 0 60px rgba(0,140,255,.7);
+    animation:pulsar .55s infinite alternate;
 }
 
-.numero span{
-    color:#64798c;
-    font-size:9px;
-    text-transform:uppercase;
-}
-
-#aviso10{
-    height:25px;
+.contagem-final .separador{
     color:#168cff;
-    font-size:14px;
-    font-weight:bold;
+    text-shadow:0 0 25px #168cff;
 }
 
-.efeito10{
-    animation:pulse10 .7s infinite alternate;
-}
-
-@keyframes pulse10{
-    from{
-        transform:scale(1);
-        box-shadow:0 0 0 rgba(0,130,255,0);
-    }
-    to{
-        transform:scale(1.03);
-        box-shadow:0 0 35px rgba(0,130,255,.45);
-    }
-}
-
-.flash{
-    animation:flashTela .5s infinite alternate;
-}
-
-@keyframes flashTela{
-    from{
-        background:#03070c;
-    }
-    to{
-        background:#061b30;
-    }
+@keyframes pulsar{
+    from{transform:scale(1);}
+    to{transform:scale(1.13);}
 }
 
 #site{
     display:none;
-    position:relative;
 }
 
 .container{
-    max-width:750px;
+    width:100%;
+    max-width:760px;
     margin:auto;
-    padding:25px 17px 70px;
+    padding:25px 17px 50px;
 }
 
 .topo{
     text-align:center;
-    padding:30px 0 25px;
+    padding:35px 0 25px;
 }
 
 .topo small{
     color:#168cff;
-    letter-spacing:3px;
     font-size:10px;
+    letter-spacing:3px;
 }
 
 .topo h1{
-    font-size:clamp(32px,8vw,50px);
     margin:12px 0;
+    font-size:clamp(29px,7vw,47px);
 }
 
 .topo p{
-    color:#899aaa;
+    color:#8295a7;
     line-height:1.6;
     font-size:14px;
 }
 
 .barra{
     height:4px;
-    background:#0b1722;
+    background:#09131d;
     border-radius:20px;
     overflow:hidden;
-    margin:10px 0 28px;
+    margin:8px 0 28px;
 }
 
 .barra div{
+    width:33%;
     height:100%;
-    width:16%;
     background:#168cff;
-    transition:.5s;
+    transition:.6s;
 }
 
 .enigma{
-    background:#07111b;
-    border:1px solid #12304a;
+    background:#07111a;
+    border:1px solid #12334d;
     border-radius:20px;
-    padding:27px 20px;
+    padding:28px 20px;
     margin-bottom:18px;
+    box-shadow:0 12px 35px rgba(0,0,0,.2);
 }
 
-.enigma.escondido{
+.escondido{
     display:none;
 }
 
 .numero-enigma{
-    width:34px;
-    height:34px;
+    width:35px;
+    height:35px;
     display:flex;
     justify-content:center;
     align-items:center;
-    background:#0878dc;
     border-radius:50%;
+    background:#087bea;
     font-size:13px;
     font-weight:bold;
     margin-bottom:15px;
@@ -208,68 +164,66 @@ body::before{
 }
 
 .enigma p{
-    color:#8195a8;
+    color:#8295a7;
     font-size:13px;
-    line-height:1.5;
+    line-height:1.6;
     margin-bottom:18px;
 }
 
-input{
+input[type="date"],
+textarea,
+input[type="password"]{
     width:100%;
-    padding:14px;
-    background:#050d15;
+    background:#040a10;
+    border:1px solid #193c57;
     color:white;
-    border:1px solid #183b56;
-    border-radius:11px;
     outline:none;
+    border-radius:11px;
+    padding:14px;
+    font-size:14px;
     margin-bottom:10px;
+}
+
+textarea{
+    min-height:130px;
+    resize:vertical;
+    line-height:1.5;
+}
+
+textarea::placeholder,
+input::placeholder{
+    color:#536b7d;
 }
 
 button{
     width:100%;
-    padding:14px;
     border:0;
     border-radius:11px;
+    padding:14px;
     background:#087bea;
     color:white;
     font-weight:bold;
     cursor:pointer;
+    transition:.2s;
+}
+
+button:hover{
+    background:#168cff;
 }
 
 button:active{
     transform:scale(.98);
 }
 
-.resposta{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:8px;
-}
-
-.opcao{
-    background:#091824;
-    border:1px solid #16364d;
-    border-radius:10px;
-    padding:13px 8px;
-    text-align:center;
-    color:#c5d1dc;
-    cursor:pointer;
-    transition:.2s;
-}
-
-.opcao:hover{
-    border-color:#168cff;
-}
-
 .msg{
     text-align:center;
-    min-height:19px;
+    min-height:18px;
     margin-top:12px;
     font-size:12px;
 }
 
 .certo{
-    color:#2bdb91;
+    color:#2bdc91;
 }
 
 .errado{
@@ -278,40 +232,143 @@ button:active{
 
 .final{
     display:none;
-    background:#07111b;
-    border:1px solid #14517d;
+    background:#07111a;
+    border:1px solid #14527d;
     border-radius:22px;
     padding:30px 20px;
     margin-top:25px;
+    animation:aparecer .8s ease;
+}
+
+@keyframes aparecer{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 .final h2{
     text-align:center;
-    margin-bottom:25px;
     font-size:29px;
+    margin-bottom:28px;
 }
 
 .final p{
-    color:#c2ced8;
-    line-height:1.85;
+    color:#c3ced8;
+    line-height:1.9;
     font-size:15px;
-    margin-bottom:18px;
+    margin-bottom:20px;
 }
 
 .assinatura{
-    text-align:center;
     color:#168cff;
+    text-align:center;
     margin-top:30px;
-    font-weight:bold;
+    font-size:25px;
 }
 
-@media(max-width:420px){
-    .numero{
-        width:67px;
+.rodape{
+    text-align:center;
+    padding:35px 10px 15px;
+}
+
+.rodape span{
+    color:#344b5e;
+    font-size:10px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.rodape span:hover{
+    color:#168cff;
+}
+
+#secreto{
+    display:none;
+    min-height:100vh;
+    padding:20px;
+}
+
+.secreto-container{
+    max-width:650px;
+    margin:auto;
+    padding-top:10vh;
+}
+
+.secreto-box{
+    background:#07111a;
+    border:1px solid #123b59;
+    border-radius:22px;
+    padding:30px 20px;
+    text-align:center;
+}
+
+.secreto-box h1{
+    font-size:29px;
+    margin-bottom:10px;
+}
+
+.secreto-box > p{
+    color:#71879a;
+    font-size:13px;
+    margin-bottom:22px;
+    line-height:1.6;
+}
+
+.codigo{
+    text-align:center;
+    letter-spacing:8px;
+    font-size:22px;
+}
+
+.secreto-conteudo{
+    display:none;
+    margin-top:25px;
+    text-align:left;
+}
+
+.resposta-secreta{
+    background:#040a10;
+    border:1px solid #17364d;
+    border-radius:15px;
+    padding:20px;
+    margin-bottom:15px;
+}
+
+.resposta-secreta h3{
+    color:#168cff;
+    font-size:14px;
+    margin-bottom:12px;
+}
+
+.resposta-secreta p{
+    color:#c5d0d9;
+    white-space:pre-wrap;
+    line-height:1.7;
+    margin:0;
+}
+
+.voltar{
+    margin-top:20px;
+}
+
+@media(max-width:430px){
+
+    .contador-area{
+        gap:4px;
     }
 
-    .numero b{
-        font-size:24px;
+    .numero strong{
+        font-size:43px;
+    }
+
+    .separador{
+        font-size:38px;
     }
 }
 </style>
@@ -319,48 +376,30 @@ button:active{
 
 <body>
 
-<!-- PARTE QUE APARECE ANTES DA HORA -->
-
 <div id="espera">
 
-    <div class="espera-box" id="caixaEspera">
+    <div class="contador-area" id="contadorArea">
 
-        <div class="mini">em breve...</div>
-
-        <h1>O site será liberado em:</h1>
-
-        <p>
-            em breve estará pronto pra vc ver<br>
-            espera só mais um pouquinho...
-        </p>
-
-        <div class="contador">
-
-            <div class="numero">
-                <b id="hora">00</b>
-                <span>horas</span>
-            </div>
-
-            <div class="numero">
-                <b id="minuto">00</b>
-                <span>minutos</span>
-            </div>
-
-            <div class="numero">
-                <b id="segundo">00</b>
-                <span>segundos</span>
-            </div>
-
+        <div class="numero">
+            <strong id="horas">00</strong>
         </div>
 
-        <div id="aviso10"></div>
+        <div class="separador">:</div>
+
+        <div class="numero">
+            <strong id="minutos">00</strong>
+        </div>
+
+        <div class="separador">:</div>
+
+        <div class="numero">
+            <strong id="segundos">00</strong>
+        </div>
 
     </div>
 
 </div>
 
-
-<!-- SITE -->
 
 <div id="site">
 
@@ -368,13 +407,13 @@ button:active{
 
     <div class="topo">
 
-        <small>I love Porto Jarcem</small>
+        <small>01.07.2026 → 01.10.2026</small>
 
-        <h1>vamos ver se você lembra de algo</h1>
+        <h1>antes de ler...</h1>
 
         <p>
-            tem algumas perguntas aqui,<br>
-            e cada resposta certa libera a próxima.
+            tem três coisinhas que eu quero saber.
+            responde com sinceridade. 💙
         </p>
 
     </div>
@@ -384,8 +423,6 @@ button:active{
     </div>
 
 
-    <!-- 1 -->
-
     <div class="enigma" id="e1">
 
         <div class="numero-enigma">01</div>
@@ -393,295 +430,270 @@ button:active{
         <h2>Que dia começou nosso relacionamento?</h2>
 
         <p>
-            Quero ver se você lembra exatamente do dia...
+            Quero ver se você lembra do começo de tudo.
         </p>
 
-        <input type="date" id="data">
+        <input
+            type="date"
+            id="dataRelacionamento"
+        >
 
-        <button onclick="resposta1()">responder</button>
+        <button onclick="resposta1()">
+            responder
+        </button>
 
         <div class="msg" id="m1"></div>
 
     </div>
 
 
-    <!-- 2 -->
-
     <div class="enigma escondido" id="e2">
 
         <div class="numero-enigma">02</div>
 
-        <h2>Que dia eu faço aniversário?</h2>
+        <h2>
+            Qual música você escuta e lembra da gente
+        </h2>
 
         <p>
-            Só precisa colocar o dia e o mês.
+            Não tem resposta certa ou errada.
+            Quero saber qual música faz você lembrar da gente.
         </p>
 
-        <input type="date" id="aniversario">
+        <textarea
+            id="musica"
+            placeholder="escreva aqui..."
+        ></textarea>
 
-        <button onclick="resposta2()">responder</button>
+        <button onclick="resposta2()">
+            guardar resposta
+        </button>
 
         <div class="msg" id="m2"></div>
 
     </div>
 
 
-    <!-- 3 -->
-
     <div class="enigma escondido" id="e3">
 
         <div class="numero-enigma">03</div>
 
-        <h2>Qual é a minha cor favorita?</h2>
+        <h2>
+            Se você pudesse definir nosso relacionamento
+            em uma frase, qual seria?
+        </h2>
 
         <p>
-            Essa aqui você deveria saber...
+            Escreve a primeira coisa que vier na sua cabeça.
         </p>
 
-        <div class="resposta">
+        <textarea
+            id="frase"
+            placeholder="escreva uma frase sobre nós..."
+        ></textarea>
 
-            <div class="opcao" onclick="cor('Vermelho')">Vermelho</div>
-            <div class="opcao" onclick="cor('Azul')">Azul</div>
-            <div class="opcao" onclick="cor('Verde')">Verde</div>
-            <div class="opcao" onclick="cor('Amarelo')">Amarelo</div>
-            <div class="opcao" onclick="cor('Roxo')">Roxo</div>
-            <div class="opcao" onclick="cor('Rosa')">Rosa</div>
-            <div class="opcao" onclick="cor('Preto')">Preto</div>
-            <div class="opcao" onclick="cor('Branco')">Branco</div>
-            <div class="opcao" onclick="cor('Laranja')">Laranja</div>
-            <div class="opcao" onclick="cor('Marrom')">Marrom</div>
-            <div class="opcao" onclick="cor('Cinza')">Cinza</div>
-            <div class="opcao" onclick="cor('Ciano')">Ciano</div>
-
-        </div>
+        <button onclick="resposta3()">
+            finalizar
+        </button>
 
         <div class="msg" id="m3"></div>
 
     </div>
 
 
-    <!-- 4 -->
-
-    <div class="enigma escondido" id="e4">
-
-        <div class="numero-enigma">04</div>
-
-        <h2>Quem é meu jogador favorito?</h2>
-
-        <p>
-            Essa não deveria ser tão difícil...
-        </p>
-
-        <div class="resposta">
-
-            <div class="opcao" onclick="jogador('Neymar')">Neymar</div>
-            <div class="opcao" onclick="jogador('Cristiano Ronaldo')">Cristiano Ronaldo</div>
-            <div class="opcao" onclick="jogador('Mbappé')">Mbappé</div>
-            <div class="opcao" onclick="jogador('Vini Jr.')">Vini Jr.</div>
-            <div class="opcao" onclick="jogador('Messi')">Messi</div>
-            <div class="opcao" onclick="jogador('Rodrygo')">Rodrygo</div>
-
-        </div>
-
-        <div class="msg" id="m4"></div>
-
-    </div>
-
-
-    <!-- 5 -->
-
-    <div class="enigma escondido" id="e5">
-
-        <div class="numero-enigma">05</div>
-
-        <h2>Qual desses artistas eu mais gosto?</h2>
-
-        <p>
-            pensa um pouco antes de escolher.
-        </p>
-
-        <div class="resposta">
-
-            <div class="opcao" onclick="artista('Juice WRLD')">Juice WRLD</div>
-            <div class="opcao" onclick="artista('Matuê')">Matuê</div>
-            <div class="opcao" onclick="artista('Travis Scott')">Travis Scott</div>
-            <div class="opcao" onclick="artista('Drake')">Drake</div>
-            <div class="opcao" onclick="artista('The Weeknd')">The Weeknd</div>
-            <div class="opcao" onclick="artista('Veigh')">Veigh</div>
-
-        </div>
-
-        <div class="msg" id="m5"></div>
-
-    </div>
-
-
-    <!-- 6 -->
-
-    <div class="enigma escondido" id="e6">
-
-        <div class="numero-enigma">06</div>
-
-        <h2>Qual é meu carro dos sonhos?</h2>
-
-        <p>
-            última... será que você acerta?
-        </p>
-
-        <div class="resposta">
-
-            <div class="opcao" onclick="carro('BMW')">BMW</div>
-            <div class="opcao" onclick="carro('Porsche')">Porsche</div>
-            <div class="opcao" onclick="carro('Lamborghini')">Lamborghini</div>
-            <div class="opcao" onclick="carro('Ferrari')">Ferrari</div>
-            <div class="opcao" onclick="carro('Mercedes')">Mercedes</div>
-            <div class="opcao" onclick="carro('Audi')">Audi</div>
-
-        </div>
-
-        <div class="msg" id="m6"></div>
-
-    </div>
-
-
-    <!-- TEXTO FINAL -->
-
     <div class="final" id="final">
 
-        <h2>aqui estará o titulo (não coloquei porque você ainda vai testar, me refiro a você vitoria)</h2>
+        <h2>você conseguiu 🎉 </h2>
 
         <p>
-            aqui embaixo estará o texto ↓
+        olaaaaaaaaa gabrielaaaaa, tudo bemmmm??????? bom não sei como começar esse texto mais só quero deixar um aviso antes, eu estou escrevendo isso pelo computador e vou dar meu máximo pra não errar nenhuma letra pois não me acostumei a escrever aqui,
         </p>
 
         <p>
-            Por enquanto eu coloquei um texto sobre Kylian Mbappé
-            aqui, mas isso não vai ficar assim para sempre...
+        hoje finalmente completamos 3 messes que pra uns casais é impossível mais para a gente foi fácil, e te digo que foi bom tirando as partes ruins, eu nem percebi o tempo passando porque estar com você é tão bom que eu perco a noção do tempo, os dias passam tão rápidos que eu penso que foi ontem que eu estava comemorando nossos 2 messes mais já faz 1 mês, você é uma garota que Deus sentiu que eu precisava e eu realmente estava precisando de você na minha vida, todo dia que eu acordo eu penso em você porque a atração e o motivo de eu acordar feliz é você e sempre será,
         </p>
 
         <p>
-            Kylian Mbappé é um dos grandes nomes do futebol da sua
-            geração. Conhecido pela velocidade, explosão, habilidade
-            no um contra um e capacidade de finalização, ele chamou
-            atenção desde muito novo.
+        podemos ter uns desentendimentos mais nunca deixarei de te amar por causa dessas coisas que vem acontecendo, você na minha vida foi um milagre de Deus para me deixar vivo, eu me sinto especial e importante quando estou conversando com você e nenhuma das suas mensagens passa despercebido, você cantando alecrim ou outras musicas, coisas que podem parecer estranhas ou comum pra alguns pra mim é engraçado e já é algo que fica na memoria de que sempre sou feliz quando estou com você,
         </p>
 
         <p>
-            Sua carreira passou pelo Monaco, Paris Saint-Germain e
-            Real Madrid, além de grandes momentos pela seleção
-            francesa. Dentro de campo, sua velocidade e seus
-            movimentos fazem dele um jogador muito difícil de marcar.
+        se algum dia alguém vir me perguntar como eu te aguento eu falo que eu que não sei como você me aguenta com todos esses ciúmes que eu tenho, nosso relacionamento tem partes ruins mais se for juntar todas partes boas nosso relacionamento é algo perfeito demais pra quem achava que nunca iria dar certo com ninguém, pois hoje eu acredito que eu dou certo com alguém e esse alguém é você,
         </p>
 
         <p>
-            Mas esse texto é só um espaço reservado...
-            porque o verdadeiro texto que deveria estar aqui ainda
-            está sendo escrito.
+        você sempre será a pessoa que vai estar na minha mente e nos meus dias, pois um dia sem você é um dia sem cor, todas musicas sobre relacionamento que antes eram normais pra mim hoje tem efeito, qualquer musica que fale sobre amor me lembra você e seu nome vem na mente,
         </p>
 
         <p>
-            Em breve isso aqui vai ser muito maior.
+        algo que eu amo muito em você é seu jeito engraçado, seu nome é algo que eu amo e sou viciado em falar, seu cabelo nem tem como descrever de tão perfeito que ele é, eu amo cada detalhe que existe em você, você é uma menina que ninguém gostaria de perder a amizade ou a confiança porque sem você a vida parece que não tem valor,
+        </p>
+
+        <p>
+        nesse texto eu queria te falar o quanto eu te amo mais não é possível, pois eu te amo muito mais do que cada linha que esta aqui diz, sou capaz de dar minha vida para te salvar de algo, esse site e esse texto e a menor surpresa que te darei,
+        </p>
+
+        <p>
+        e queria falar outra coisa também, dizem que quando as pessoas morrem o cérebro vive por mais 7 minutos e 4 minutos será sobre você ( os outros 3 será sobre minha vô que foi uma pessoa muito especial na minha vida igual você está sendo),
+        </p>
+
+        <p>
+        hoje todos sabem que eu te amo mais a um ano atras eu tinha que ficar escondendo isso de todos e ate de você (eu deixava muito na cara mesmo assim) mais o bom é que todos apoiam nosso relacionamento, e se não apoiassem eu não ligaria também, você estando bem com nosso relacionamento é o que importa,
+        </p>
+
+        <p>
+        espero que você tenha gostado do que eu escrevi ate aqui, eu queria escrever muito mais, mas também ficaria complicado para você ler isso tudo, Gabriela eu te amo
         </p>
 
         <div class="assinatura">
-            © Made by Juice and other developers.
+            💙
         </div>
+
+    </div>
+
+
+    <div class="rodape">
+
+        <span onclick="abrirSecreto()">
+            feito por Juice 
+        </span>
 
     </div>
 
 </div>
+
+</div>
+
+
+<div id="secreto">
+
+    <div class="secreto-container">
+
+        <div class="secreto-box">
+
+            <h1>área secreta</h1>
+
+            <p>
+                se você chegou aqui, provavelmente sabe o que está fazendo.
+            </p>
+
+            <input
+                class="codigo"
+                id="codigo"
+                type="password"
+                inputmode="numeric"
+                maxlength="3"
+                placeholder="•••"
+            >
+
+            <button onclick="verificarCodigo()">
+                entrar
+            </button>
+
+            <div class="msg" id="msgCodigo"></div>
+
+            <div
+                class="secreto-conteudo"
+                id="conteudoSecreto"
+            >
+
+                <div class="resposta-secreta">
+
+                    <h3>
+                        🎵 A música que ela escolheu
+                    </h3>
+
+                    <p id="respostaMusica"></p>
+
+                </div>
+
+                <div class="resposta-secreta">
+
+                    <h3>
+                        💙 A frase que ela escreveu
+                    </h3>
+
+                    <p id="respostaFrase"></p>
+
+                </div>
+
+                <button
+                    class="voltar"
+                    onclick="voltarSite()"
+                >
+                    voltar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 
 
 <script>
 
-/*
-   CONFIGURAÇÃO DA HORA
+/* =====================================================
+   CONTADOR
+   LIBERA ÀS 21:50.
+   DEPOIS DE 21:50, O SITE PERMANECE LIBERADO.
+===================================================== */
 
-   Está 12:24 para testar.
+const liberacao = new Date();
 
-   Quando for colocar pra meia-noite:
-   12 vira 0
-   24 vira 0
-
-   ficando:
-
-   const horaLiberacao = 0;
-   const minutoLiberacao = 0;
-*/
-
-const horaLiberacao = 18;
-const minutoLiberacao = 18;
+liberacao.setHours(23,59,0,0);
 
 
-/* CONTADOR */
-
-function atualizar(){
+function atualizarContador(){
 
     const agora = new Date();
 
-    const liberacao = new Date();
-
-    liberacao.setHours(
-        horaLiberacao,
-        minutoLiberacao,
-        0,
-        0
-    );
-
-    let restante = liberacao - agora;
+    const restante = liberacao - agora;
 
     if(restante <= 0){
 
         abrirSite();
+
         return;
 
     }
 
-    const segundosTotais =
+    const total =
         Math.floor(restante / 1000);
 
     const horas =
-        Math.floor(segundosTotais / 3600);
+        Math.floor(total / 3600);
 
     const minutos =
-        Math.floor((segundosTotais % 3600) / 60);
+        Math.floor(
+            (total % 3600) / 60
+        );
 
     const segundos =
-        segundosTotais % 60;
+        total % 60;
 
-
-    document.getElementById("hora")
+    document.getElementById("horas")
         .textContent =
         String(horas).padStart(2,"0");
 
-    document.getElementById("minuto")
+    document.getElementById("minutos")
         .textContent =
         String(minutos).padStart(2,"0");
 
-    document.getElementById("segundo")
+    document.getElementById("segundos")
         .textContent =
         String(segundos).padStart(2,"0");
 
+    const area =
+        document.getElementById("contadorArea");
 
-    /* EFEITO ESPECIAL NOS ÚLTIMOS 10 SEGUNDOS */
+    if(total <= 10){
 
-    if(segundosTotais <= 10){
-
-        document
-            .getElementById("caixaEspera")
-            .classList.add("efeito10");
-
-        document.body.classList.add("flash");
-
-        const aviso =
-            document.getElementById("aviso10");
-
-        aviso.textContent =
-            "    ";
-
-        aviso.style.fontSize = "17px";
+        area.classList.add(
+            "contagem-final"
+        );
 
     }
 
@@ -696,17 +708,18 @@ function abrirSite(){
     document.getElementById("site")
         .style.display = "block";
 
-    document.body.classList.remove("flash");
-
 }
 
 
-atualizar();
+atualizarContador();
 
-setInterval(atualizar,1000);
+setInterval(
+    atualizarContador,
+    250
+);
 
 
-/* MOSTRA PRÓXIMO ENIGMA */
+/* LIBERAR ENIGMA */
 
 function liberar(numero){
 
@@ -717,7 +730,7 @@ function liberar(numero){
     document
         .getElementById("progresso")
         .style.width =
-        ((numero / 6) * 100) + "%";
+        ((numero / 3) * 100) + "%";
 
     setTimeout(function(){
 
@@ -738,21 +751,25 @@ function liberar(numero){
 function resposta1(){
 
     const valor =
-        document.getElementById("data").value;
+        document.getElementById(
+            "dataRelacionamento"
+        ).value;
 
     const msg =
         document.getElementById("m1");
 
-    if(valor === "2026-08-01"){
+    if(valor === "2026-07-01"){
 
         msg.textContent =
-            "o mais importante!";
+            "acertou 💙";
 
         msg.className =
             "msg certo";
 
         setTimeout(function(){
+
             liberar(2);
+
         },600);
 
     }else{
@@ -772,193 +789,187 @@ function resposta1(){
 
 function resposta2(){
 
-    const valor =
-        document.getElementById("aniversario").value;
+    const resposta =
+        document.getElementById("musica")
+        .value
+        .trim();
 
     const msg =
         document.getElementById("m2");
 
-    if(!valor){
-        return;
-    }
-
-    const data =
-        new Date(valor + "T00:00:00");
-
-    const dia =
-        data.getDate();
-
-    const mes =
-        data.getMonth() + 1;
-
-    if(dia === 21 && mes === 6){
+    if(resposta.length < 1){
 
         msg.textContent =
-            "se não soubesse seria preocupante";
-
-        msg.className =
-            "msg certo";
-
-        setTimeout(function(){
-            liberar(3);
-        },600);
-
-    }else{
-
-        msg.textContent =
-            "errou 😭";
+            "escreve alguma coisa primeiro 😭";
 
         msg.className =
             "msg errado";
 
+        return;
+
     }
+
+    localStorage.setItem(
+        "musicaGabriela",
+        resposta
+    );
+
+    msg.textContent =
+        "guardei sua resposta 💙";
+
+    msg.className =
+        "msg certo";
+
+    setTimeout(function(){
+
+        liberar(3);
+
+    },600);
 
 }
 
 
 /* ENIGMA 3 */
 
-function cor(valor){
+function resposta3(){
+
+    const resposta =
+        document.getElementById("frase")
+        .value
+        .trim();
 
     const msg =
         document.getElementById("m3");
 
-    if(valor === "Roxo"){
+    if(resposta.length < 1){
 
         msg.textContent =
-            "uiui, tá conseguindo em";
-
-        msg.className =
-            "msg certo";
-
-        setTimeout(function(){
-            liberar(4);
-        },600);
-
-    }else{
-
-        msg.textContent =
-            "não é essa kkkkk";
+            "escreve uma frase primeiro 💙";
 
         msg.className =
             "msg errado";
 
-    }
-
-}
-
-
-/* ENIGMA 4 */
-
-function jogador(valor){
-
-    const msg =
-        document.getElementById("m4");
-
-    if(valor === "Mbappé"){
-
-        msg.textContent =
-            "óbvio né ";
-
-        msg.className =
-            "msg certo";
-
-        setTimeout(function(){
-            liberar(5);
-        },600);
-
-    }else{
-
-        msg.textContent =
-            "passou longe 👀";
-
-        msg.className =
-            "msg errado";
+        return;
 
     }
 
-}
+    localStorage.setItem(
+        "fraseGabriela",
+        resposta
+    );
 
+    msg.textContent =
+        "resposta salva 💙";
 
-/* ENIGMA 5 */
+    msg.className =
+        "msg certo";
 
-function artista(valor){
+    document
+        .getElementById("progresso")
+        .style.width = "100%";
 
-    const msg =
-        document.getElementById("m5");
-
-    if(valor === "Matuê"){
-
-        msg.textContent =
-            "essa também era fácil ";
-
-        msg.className =
-            "msg certo";
-
-        setTimeout(function(){
-            liberar(6);
-        },600);
-
-    }else{
-
-        msg.textContent =
-            "não dessa vez";
-
-        msg.className =
-            "msg errado";
-
-    }
-
-}
-
-
-/* ENIGMA 6 */
-
-function carro(valor){
-
-    const msg =
-        document.getElementById("m6");
-
-    if(valor === "BMW"){
-
-        msg.textContent =
-            "ACERTOU A ÚLTIMA ";
-
-        msg.className =
-            "msg certo";
+    setTimeout(function(){
 
         document
-            .getElementById("progresso")
-            .style.width = "100%";
+            .getElementById("final")
+            .style.display = "block";
 
-        setTimeout(function(){
+        document
+            .getElementById("final")
+            .scrollIntoView({
+                behavior:"smooth",
+                block:"center"
+            });
 
-            document
-                .getElementById("final")
-                .style.display = "block";
+    },700);
 
-            document
-                .getElementById("final")
-                .scrollIntoView({
-                    behavior:"smooth",
-                    block:"center"
-                });
+}
 
-        },800);
+
+/* ÁREA SECRETA */
+
+function abrirSecreto(){
+
+    document.getElementById("site")
+        .style.display = "none";
+
+    document.getElementById("secreto")
+        .style.display = "block";
+
+    document.getElementById("codigo")
+        .focus();
+
+}
+
+
+function verificarCodigo(){
+
+    const codigo =
+        document.getElementById("codigo")
+        .value;
+
+    const msg =
+        document.getElementById("msgCodigo");
+
+    if(codigo === "999"){
+
+        msg.textContent =
+            "acesso liberado.";
+
+        msg.className =
+            "msg certo";
+
+        const musica =
+            localStorage.getItem(
+                "musicaGabriela"
+            );
+
+        const frase =
+            localStorage.getItem(
+                "fraseGabriela"
+            );
+
+        document.getElementById(
+            "respostaMusica"
+        ).textContent =
+            musica ||
+            "ela ainda não respondeu.";
+
+        document.getElementById(
+            "respostaFrase"
+        ).textContent =
+            frase ||
+            "ela ainda não respondeu.";
+
+        document.getElementById(
+            "conteudoSecreto"
+        ).style.display =
+            "block";
 
     }else{
 
         msg.textContent =
-            "quase... tenta outra";
+            "código incorreto.";
 
         msg.className =
             "msg errado";
 
     }
+
+}
+
+
+function voltarSite(){
+
+    document.getElementById("secreto")
+        .style.display = "none";
+
+    document.getElementById("site")
+        .style.display = "block";
 
 }
 
 </script>
 
 </body>
-                  </html>
+</html>
